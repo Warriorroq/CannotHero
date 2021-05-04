@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    [SerializeField] private float speed = 8f;
+    [SerializeField] private float _speed = 8f;
     private void Update()
     {
-        transform.Translate(speed * Time.deltaTime,0,0);
+        transform.Translate(_speed * Time.deltaTime,0,0);
     }
 }

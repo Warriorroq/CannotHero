@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private float maxPeriod = 10f;
-    [SerializeField] private float minPeriod = 2f;
-    [SerializeField] private GameObject targetPrefab;
-    private Transform spawnPosition;
-    private float period;
+    [SerializeField] private float _maxPeriod = 10f;
+    [SerializeField] private float _minPeriod = 2f;
+    [SerializeField] private GameObject _targetPrefab;
+    private Transform _spawnPosition;
+    private float _period;
     private void Start()
     {
-        spawnPosition = transform.GetChild(0);
-        period = Random.Range(minPeriod, maxPeriod);
-        InvokeRepeating(nameof(CreateTarget), period, period);
+        _spawnPosition = transform.GetChild(0);
+        _period = Random.Range(_minPeriod, _maxPeriod);
+        InvokeRepeating(nameof(CreateTarget), _period, _period);
     }
     private void CreateTarget()
     {
-        Instantiate(targetPrefab, spawnPosition.position, targetPrefab.transform.rotation);
+        Instantiate(_targetPrefab, _spawnPosition.position, _targetPrefab.transform.rotation);
     }
 }

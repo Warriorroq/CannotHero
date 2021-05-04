@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CannonEffect : MonoBehaviour
 {
-    [SerializeField]private GameObject Particles;
+    [SerializeField]private GameObject _particle;
     private void Start()
     {
         FindObjectOfType<CannonShootAbility>().Shoot += CreateParticles;
     }
     private void CreateParticles()
-        =>Instantiate(Particles, transform.position, Quaternion.identity);
+        =>Instantiate(_particle, transform.position, Quaternion.identity);
     
 }

@@ -5,9 +5,9 @@ using System;
 public class CannonShootAbility : MonoBehaviour
 {
 
-    [SerializeField] private float bulletForce = 100f;
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform bulletSpawnPosition;
+    [SerializeField] private float _bulletForce = 100f;
+    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private Transform _bulletSpawnPosition;
     public event Action Shoot;
     void Start()
     {
@@ -22,7 +22,7 @@ public class CannonShootAbility : MonoBehaviour
     }
     private void CreateBullet()
     {
-        var bullet = Instantiate(bulletPrefab, bulletSpawnPosition.position, bulletSpawnPosition.rotation);
-        bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * bulletForce);
+        var bullet = Instantiate(_bulletPrefab, _bulletSpawnPosition.position, _bulletSpawnPosition.rotation);
+        bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * _bulletForce);
     }
 }

@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class Looker : MonoBehaviour
 {
-    [SerializeField] private Transform cannon;
-    [SerializeField] private Transform rotater;
+    [SerializeField] private Transform _cannon;
+    [SerializeField] private Transform _rotater;
     void Update()
     {
         transform.LookAt(getMousePosInWorld());
-        cannon.eulerAngles = GetCannonAngle();
-        rotater.eulerAngles = GetRotaterAngle();
+        _cannon.eulerAngles = GetCannonAngle();
+        _rotater.eulerAngles = GetRotaterAngle();
     }
     private Vector3 GetCannonAngle()
         => new Vector3(transform.eulerAngles.x, 
-            cannon.eulerAngles.y, 
-            cannon.eulerAngles.z);
+            _cannon.eulerAngles.y, 
+            _cannon.eulerAngles.z);
     private Vector3 GetRotaterAngle()
-        => new Vector3(rotater.eulerAngles.x,
+        => new Vector3(_rotater.eulerAngles.x,
             transform.eulerAngles.y,
-            rotater.eulerAngles.z);
+            _rotater.eulerAngles.z);
     private Vector3 getMousePosInWorld()
     {
         var mousePos2D = Input.mousePosition;
         mousePos2D.z = -Camera.main.transform.position.z;
         var mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
-        mousePos3D.z = 0;
+        mousePos3D.z = 1;
         return mousePos3D;
     }
 }
