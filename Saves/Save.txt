@@ -1,11 +1,6 @@
-<--Bullet-->
-BulletForce 3000
-BulletLifeTime 3
-
-<--Spawners-->
-MaxPeriod 10
-MinPeriod 2
-
-<--Target-->
-Scale 14
 Speed 8
+Scale 14
+MinPeriod 3
+MaxPeriod 10
+BulletLifeTime 3
+BulletForce 3000

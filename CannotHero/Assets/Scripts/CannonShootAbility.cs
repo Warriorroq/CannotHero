@@ -11,6 +11,7 @@ public class CannonShootAbility : MonoBehaviour
     public event Action Shoot;
     void Start()
     {
+        _bulletForce = FileReader.ReadParam("BulletForce");
         Shoot += CreateBullet;
     }    
     void Update()

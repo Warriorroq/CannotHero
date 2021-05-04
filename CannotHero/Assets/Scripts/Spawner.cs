@@ -11,6 +11,8 @@ public class Spawner : MonoBehaviour
     private float _period;
     private void Start()
     {
+        _maxPeriod = FileReader.ReadParam("MaxPeriod");
+        _minPeriod = FileReader.ReadParam("MinPeriod");
         _spawnPosition = transform.GetChild(0);
         _period = Random.Range(_minPeriod, _maxPeriod);
         InvokeRepeating(nameof(CreateTarget), _period, _period);

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Windows.Forms;
 namespace CannotHeroEditor
 {
     public class DirsReader
@@ -17,6 +14,15 @@ namespace CannotHeroEditor
             if (Directory.Exists(_dirsFolder))
                 if (ContainsSave(out var path, Directory.GetFiles(_dirsFolder), "Dirs.txt"))
                     LoadFiles(path);
+        }
+        public string Find(string value)
+        {
+            foreach(var file in files)
+            {
+                if (file.Item1.Equals(value))
+                    return file.Item2;
+            }
+            return null;
         }
         private void LoadFiles(string path)
         {
